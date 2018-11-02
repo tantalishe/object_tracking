@@ -46,8 +46,8 @@ def talker():
     global di
     di = detectionInterface(device, method, visualisation)
 
-    rospy.loginfo('Method: ', method)
-    rospy.loginfo('Visualisation: ', visualisation)
+    rospy.loginfo('Method: ' + method)
+    rospy.loginfo('Visualisation: ' + str(visualisation))
     rospy.loginfo('Working...')
 
     while not rospy.is_shutdown():
