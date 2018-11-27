@@ -50,7 +50,7 @@ def getPoints(image, amount_points):
         for j in range(amount_points):
             x = x1 + 5 + width_p*i
             y = y1 + 5 + height_p*j
-            point_array.append(image[x,y])
+            point_array.append(image[y,x])
     return np.array(point_array)
 
 def getConstraints(image):
@@ -101,7 +101,7 @@ def getObjectCoordinates(bin_image):
     bin_image = cv2.morphologyEx(bin_image, cv2.MORPH_CLOSE, kernel)
     bin_image = cv2.dilate(bin_image, kernel, iterations=DILATE_ITER)
     cv2.imshow("morph", bin_image)
-    contours, hierarchy = cv2.findContours(bin_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    retval, contours, hierarchy = cv2.findContours(bin_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
     max_area = 0
     max_cnt = 0
